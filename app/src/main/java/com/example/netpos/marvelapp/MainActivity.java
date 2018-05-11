@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                 public void onResponse(Call<CharacterDataWrapper> call, Response<CharacterDataWrapper> response) {
                     if (response.isSuccessful()){
                         CharacterDataWrapper characterDataWrapper = response.body();
-                        tvText.setText(characterDataWrapper.getData().getResults().get(0).getName());
+                        tvText.setText(characterDataWrapper.getData().getResults().get(1).getName());
                     } else {
                         Log.i("FOI", ""+response.body());
                     }

@@ -8,7 +8,8 @@ public class Character {
 
     }
 
-    public Character(String name){
+    public Character(int id, String name){
+        this.id = id;
         this.name = name;
     }
 
