@@ -9,7 +9,7 @@ public class APIClient {
     public APIClient() {
 
         this.retrofit = new Retrofit.Builder()
-                .baseUrl("https://gateway.marvel.com:443/v1/public/")
+                .baseUrl("http://gateway.marvel.com/v1/public/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }

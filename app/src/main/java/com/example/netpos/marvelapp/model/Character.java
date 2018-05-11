@@ -1,14 +1,23 @@
 package com.example.netpos.marvelapp.model;
 
-public class Results {
+public class Character {
+    private int id;
     private String name;
 
-    public Results(){
+    public Character(){
 
     }
 
-    public Results(String name){
+    public Character(String name){
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {

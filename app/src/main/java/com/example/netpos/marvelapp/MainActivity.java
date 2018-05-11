@@ -5,10 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.example.netpos.marvelapp.model.Characters;
+import com.example.netpos.marvelapp.model.CharacterDataWrapper;
 import com.example.netpos.marvelapp.service.APIClient;
 import com.example.netpos.marvelapp.service.IRest;
-import com.google.gson.Gson;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,22 +25,22 @@ public class MainActivity extends AppCompatActivity {
         APIClient apiClient = new APIClient();
         IRest IRest = apiClient.getAPIClient();
 
-        Gson gson = new Gson();
         try {
-            Call<Characters> getCharacters = IRest.getCharacters("a413ad442cdbeabdd779f3114ec2fa05");
-            getCharacters.enqueue(new Callback<Characters>() {
+            Call<CharacterDataWrapper> getCharacters = IRest.getCharacters("1", "a413ad442cdbeabdd779f3114ec2fa05", "28e4881685d9a9d9d9b042812217b15e");
+
+            getCharacters.enqueue(new Callback<CharacterDataWrapper>() {
                 @Override
-                public void onResponse(Call<Characters> call, Response<Characters> response) {
+                public void onResponse(Call<CharacterDataWrapper> call, Response<CharacterDataWrapper> response) {
                     if (response.isSuccessful()){
-                        Characters characters = response.body();
-                        tvText.setText(characters.getData().getResults().get(0).getName());
+                        CharacterDataWrapper characterDataWrapper = response.body();
+                        tvText.setText(characterDataWrapper.getData().getResults().get(0).getName());
                     } else {
                         Log.i("FOI", ""+response.body());
                     }
                 }
 
                 @Override
-                public void onFailure(Call<Characters> call, Throwable t) {
+                public void onFailure(Call<CharacterDataWrapper> call, Throwable t) {
                     Log.i("FOI", "Error, onFailure");
                 }
             });
