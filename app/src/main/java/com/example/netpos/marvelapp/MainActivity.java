@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
             public void onRefresh() {
                 tvEmpty.setVisibility(View.GONE);
                 rv.setVisibility(View.GONE);
+                characters.clear();
                 getCharactersRequest();
             }
         });
