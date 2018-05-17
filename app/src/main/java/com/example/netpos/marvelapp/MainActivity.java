@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         tvEmpty.setVisibility(View.VISIBLE);
                         rv.setVisibility(View.GONE);
+                        srlList.setRefreshing(false);
                         Toast.makeText(MainActivity.this, "Não foi possivel carregar a lista, por favor tente novamente mais tarde.", Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -96,12 +97,14 @@ public class MainActivity extends AppCompatActivity {
                 public void onFailure(@NonNull Call<CharacterDataWrapper> call, @NonNull Throwable t) {
                     tvEmpty.setVisibility(View.VISIBLE);
                     rv.setVisibility(View.GONE);
+                    srlList.setRefreshing(false);
                     Toast.makeText(MainActivity.this, "Não foi possivel carregar a lista, por favor tente novamente mais tarde.", Toast.LENGTH_SHORT).show();
                 }
             });
         } catch (Exception e){
             tvEmpty.setVisibility(View.VISIBLE);
             rv.setVisibility(View.GONE);
+            srlList.setRefreshing(false);
         }
     }
 }
