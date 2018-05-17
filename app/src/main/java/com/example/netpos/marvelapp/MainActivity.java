@@ -59,8 +59,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 tvEmpty.setVisibility(View.GONE);
-                rv.setVisibility(View.GONE);
-                characters.clear();
                 getCharactersRequest();
             }
         });
@@ -75,6 +73,9 @@ public class MainActivity extends AppCompatActivity {
                 public void onResponse(@NonNull Call<CharacterDataWrapper> call, @NonNull Response<CharacterDataWrapper> response) {
                     if (response.isSuccessful()){
                         CharacterDataWrapper characterDataWrapper = response.body();
+                        if (characters != null && characters.size() > 0){
+                            characters.clear();
+                        }
 
                         assert characterDataWrapper != null;
                         characters.addAll(characterDataWrapper.getData().getResults());
