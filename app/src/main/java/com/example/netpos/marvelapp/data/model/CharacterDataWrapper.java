@@ -1,4 +1,4 @@
-package com.example.netpos.marvelapp.model;
+package com.example.netpos.marvelapp.data.model;
 
 public class CharacterDataWrapper {
     private CharacterDataContainer data;
