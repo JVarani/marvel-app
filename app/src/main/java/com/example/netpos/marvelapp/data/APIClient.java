@@ -1,4 +1,4 @@
-package com.example.netpos.marvelapp.service;
+package com.example.netpos.marvelapp.data;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

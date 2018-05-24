@@ -1,8 +1,6 @@
-package com.example.netpos.marvelapp.adapter;
+package com.example.netpos.marvelapp.presentation;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,18 +11,17 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.netpos.marvelapp.R;
-import com.example.netpos.marvelapp.model.Character;
+import com.example.netpos.marvelapp.data.model.Character;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-import java.io.File;
 import java.util.List;
 
-public class CharacterListAdapter extends RecyclerView.Adapter<CharacterListAdapter.ViewHolder> {
+public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.ViewHolder> {
     private Context context;
     private List<Character> characters;
 
-    public CharacterListAdapter(Context context, List<Character> characters) {
+    public HeroesAdapter(Context context, List<Character> characters) {
         this.context = context;
         this.characters = characters;
     }

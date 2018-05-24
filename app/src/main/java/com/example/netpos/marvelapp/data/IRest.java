@@ -1,6 +1,6 @@
-package com.example.netpos.marvelapp.service;
+package com.example.netpos.marvelapp.data;
 
-import com.example.netpos.marvelapp.model.CharacterDataWrapper;
+import com.example.netpos.marvelapp.data.model.CharacterDataWrapper;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

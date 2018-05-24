@@ -1,4 +1,4 @@
-package com.example.netpos.marvelapp;
+package com.example.netpos.marvelapp.presentation;
 
 import android.graphics.Color;
 import android.support.annotation.NonNull;
@@ -11,11 +11,11 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.netpos.marvelapp.adapter.CharacterListAdapter;
-import com.example.netpos.marvelapp.model.Character;
-import com.example.netpos.marvelapp.model.CharacterDataWrapper;
-import com.example.netpos.marvelapp.service.APIClient;
-import com.example.netpos.marvelapp.service.IRest;
+import com.example.netpos.marvelapp.R;
+import com.example.netpos.marvelapp.data.model.Character;
+import com.example.netpos.marvelapp.data.model.CharacterDataWrapper;
+import com.example.netpos.marvelapp.data.APIClient;
+import com.example.netpos.marvelapp.data.IRest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class HeroesActivity extends AppCompatActivity {
     private TextView tvEmpty;
     private RecyclerView rv;
     private SwipeRefreshLayout srlList;
@@ -79,8 +79,8 @@ public class MainActivity extends AppCompatActivity {
 
                         assert characterDataWrapper != null;
                         characters.addAll(characterDataWrapper.getData().getResults());
-                        CharacterListAdapter adapter = new CharacterListAdapter(MainActivity.this, characters);
-                        rv.setLayoutManager(new LinearLayoutManager(MainActivity.this));
+                        HeroesAdapter adapter = new HeroesAdapter(HeroesActivity.this, characters);
+                        rv.setLayoutManager(new LinearLayoutManager(HeroesActivity.this));
                         rv.setHasFixedSize(true);
                         rv.setAdapter(adapter);
                         tvEmpty.setVisibility(View.GONE);
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
                         tvEmpty.setVisibility(View.VISIBLE);
                         rv.setVisibility(View.GONE);
                         srlList.setRefreshing(false);
-                        Toast.makeText(MainActivity.this, "Não foi possivel carregar a lista, por favor tente novamente mais tarde.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HeroesActivity.this, "Não foi possivel carregar a lista, por favor tente novamente mais tarde.", Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     tvEmpty.setVisibility(View.VISIBLE);
                     rv.setVisibility(View.GONE);
                     srlList.setRefreshing(false);
-                    Toast.makeText(MainActivity.this, "Não foi possivel carregar a lista, por favor tente novamente mais tarde.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(HeroesActivity.this, "Não foi possivel carregar a lista, por favor tente novamente mais tarde.", Toast.LENGTH_SHORT).show();
                 }
             });
         } catch (Exception e){
