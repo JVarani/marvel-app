@@ -7,6 +7,4 @@ import android.arch.lifecycle.ViewModel
  */
 class HeroesViewModel : ViewModel() {
 
-
-
 }
