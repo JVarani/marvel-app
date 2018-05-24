@@ -10,6 +10,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "API_KEY", '"a413ad442cdbeabdd779f3114ec2fa05"'
+        buildConfigField "String", "TS", '"1"'
+        buildConfigField "String", "HASH", '"28e4881685d9a9d9d9b042812217b15e"'
     }
     buildTypes {
         release {
@@ -32,6 +35,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.4.0'
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
 
     //Recycler
     implementation 'com.android.support:recyclerview-v7:27.1.1'
@@ -52,3 +56,4 @@ dependencies {
 repositories {
     mavenCentral()
 }
+apply plugin: 'kotlin-android-extensions'

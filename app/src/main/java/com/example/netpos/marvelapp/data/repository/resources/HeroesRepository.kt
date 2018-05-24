@@ -8,5 +8,5 @@ import io.reactivex.Single
  */
 interface HeroesRepository {
 
-    fun getHeroes() : Single<CharacterDataWrapper>
+    fun fetchHeroes(apiKey: String, ts: String, hash: String) : Single<CharacterDataWrapper>
 }

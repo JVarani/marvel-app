@@ -1,5 +1,6 @@
 package com.example.netpos.marvelapp.data.repository.production.heroes
 
+import com.example.netpos.marvelapp.data.api.heroes.HeroesApi
 import com.example.netpos.marvelapp.data.model.CharacterDataWrapper
 import com.example.netpos.marvelapp.data.repository.resources.HeroesRepository
 import io.reactivex.Single
@@ -9,7 +10,7 @@ import io.reactivex.Single
  */
 class ProductionHeroesRepository : HeroesRepository {
 
-    override fun getHeroes(): Single<CharacterDataWrapper> {
-        return Single.just(CharacterDataWrapper())
-    }
+    private val heroesApi by lazy { HeroesApi() }
+
+    override fun fetchHeroes(apiKey: String, ts: String, hash: String): Single<CharacterDataWrapper> = heroesApi.fetchHeroes(apiKey, ts, hash)
 }

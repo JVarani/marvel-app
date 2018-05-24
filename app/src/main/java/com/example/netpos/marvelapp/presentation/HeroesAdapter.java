@@ -54,6 +54,9 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.ViewHolder
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         Character character = characters.get(position);
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {}
+        });
         holder.pbImage.setVisibility(View.VISIBLE);
         Picasso.with(holder.ivCharacter.getContext()).load(character.getThumbnail().getImage()).into(holder.ivCharacter, new Callback() {
             @Override

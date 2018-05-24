@@ -9,5 +9,5 @@ sealed class FetchHeroesAction {
 
     object StartToFetch : FetchHeroesAction()
     object ErrorToFetch : FetchHeroesAction()
-    class HeroesFetched(heroes: CharacterDataWrapper) : FetchHeroesAction()
+    class HeroesFetched(val heroes: CharacterDataWrapper) : FetchHeroesAction()
 }

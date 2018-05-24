@@ -8,5 +8,5 @@ import io.reactivex.Single
  */
 interface HeroesUseCaseContract {
 
-    fun getHeroes() : Single<CharacterDataWrapper>
+    fun getHeroes(apiKey: String, ts: String, hash: String) : Single<CharacterDataWrapper>
 }
